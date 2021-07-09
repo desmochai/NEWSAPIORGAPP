@@ -28,7 +28,7 @@ None
 ## Git
 - This project will follow [GitFlow][GF] version control workflow convections 
 - `dev` will be the semi-stable branch with `tag` on each stable merge. This is the branch from where IPA should be published to iTunes Test Flight
-- `master` will have code that are fully stable with `release` on each merge. App store publishing should be done from this branch only.
+- `main` will have code that are fully stable with `release` on each merge. App store publishing should be done from this branch only.
 
 [RW]: https://github.com/raywenderlich/swift-style-guide
 [GF]: https://www.atlassian.com/git/tutorials/comparing-workflows
