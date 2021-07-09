@@ -29,7 +29,6 @@
 /* Begin PBXFileReference section */
 		2761E71B2523DD32009B6EE4 /* NewsOrgApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsOrgApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2761E7272523DD33009B6EE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2761E72C2523DD33009B6EE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2761E76A2523DED8009B6EE4 /* NewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		2761E7712523DED8009B6EE4 /* ArticlesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesListViewModel.swift; sourceTree = "<group>"; };
 		A259F16A2696C6600056FD5C /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		A259F1CD26971E370056FD5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A259F20D26978AD40056FD5C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A259F2102698391A0056FD5C /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
+		A259F21226986AD20056FD5C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 		A259F1772696E0B90056FD5C /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A259F21226986AD20056FD5C /* Info.plist */,
 				2761E7272523DD33009B6EE4 /* Assets.xcassets */,
-				2761E72C2523DD33009B6EE4 /* Info.plist */,
 				A259F20D26978AD40056FD5C /* Launch Screen.storyboard */,
 			);
 			path = SupportingFiles;
