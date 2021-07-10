@@ -25,7 +25,7 @@ struct ArticlesListItemView: View {
             configuration: { $0.resizable() }
         )
         .scaledToFill()
-        .frame(width: 100, height: 100)
+        .frame(width: 120, height: 120)
         .cornerRadius(8.0)
         .padding(.vertical, 4)
     }
