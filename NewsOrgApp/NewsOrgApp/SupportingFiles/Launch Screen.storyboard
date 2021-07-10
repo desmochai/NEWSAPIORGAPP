@@ -21,8 +21,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xxj-Pd-Tw8">
                                         <rect key="frame" x="0.0" y="385" width="414" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWSAPI.ORG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFt-i3-zUf">
-                                                <rect key="frame" x="63" y="0.0" width="288.5" height="48"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BELLMAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFt-i3-zUf">
+                                                <rect key="frame" x="110.5" y="0.0" width="193.5" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
