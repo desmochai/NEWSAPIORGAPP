@@ -9,13 +9,10 @@ struct ArticlesListItemView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 8, content: {
             thumbnail
-            VStack(alignment: .leading, spacing: 8, content: {
+            VStack(alignment: .leading, spacing: 4, content: {
                 title
-                HStack(alignment: .center, spacing: nil, content: {
-                    source
-                    timestamp
-                })
-                description
+                timestamp
+                source
             })
         })
     }
@@ -35,10 +32,9 @@ struct ArticlesListItemView: View {
     
     private var title: some View {
         Text(article.title)
-            .font(.title)
+            .font(.title2)
             .bold()
-            .lineLimit(1)
-            .minimumScaleFactor(0.8)
+            .lineLimit(3)
     }
     
     private var source: some View {
@@ -51,13 +47,6 @@ struct ArticlesListItemView: View {
         Text(article.publishedAt.uppercased())
             .foregroundColor(.accentColor)
             .font(.custom("stamp", size: 10))
-    }
-    
-    private var description: some View {
-        Text(article.description)
-            .fontWeight(.light)
-            .font(.footnote)
-            .lineLimit(3)
     }
     
     private var spinner: some View {
