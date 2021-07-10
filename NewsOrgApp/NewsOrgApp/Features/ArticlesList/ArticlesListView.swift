@@ -34,12 +34,12 @@ struct ArticlesListView: View {
                 ForEach(articles) { article in
                     NavigationLink(
                         destination: ArticleDetailView(article: article),
-                        label: {
-                            ArticlesListItemView(article: article)
-                        })
+                        label: { ArticlesListItemView(article: article) }
+                    )
                 }
             })
             .padding(.horizontal, 8)
+            .animation(.easeIn)
         })
     }
 }

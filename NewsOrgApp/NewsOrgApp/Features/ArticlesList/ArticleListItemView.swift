@@ -39,13 +39,13 @@ struct ArticlesListItemView: View {
     
     private var source: some View {
         Text("Source: ".appending(article.source).uppercased())
-            .foregroundColor(.accentColor)
+            .foregroundColor(.secondary)
             .font(.custom("stamp", size: 10))
     }
     
     private var timestamp: some View {
         Text(article.publishedAt.uppercased())
-            .foregroundColor(.accentColor)
+            .foregroundColor(.secondary)
             .font(.custom("stamp", size: 10))
     }
     
