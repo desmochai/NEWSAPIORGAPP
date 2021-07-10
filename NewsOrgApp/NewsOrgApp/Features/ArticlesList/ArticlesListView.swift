@@ -35,6 +35,7 @@ struct ArticlesListView: View {
                 label: { ArticlesListItemView(article: article) }
             )
         }
+        .animation(.easeIn)
     }
 }
 
