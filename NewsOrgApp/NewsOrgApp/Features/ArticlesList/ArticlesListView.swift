@@ -29,13 +29,18 @@ struct ArticlesListView: View {
     }
     
     private func list(of articles: [ArticlesListViewModel.Article]) -> some View {
-        List(articles) { article in
-            NavigationLink(
-                destination: ArticleDetailView(article: article),
-                label: { ArticlesListItemView(article: article) }
-            )
-        }
-        .animation(.easeIn)
+        ScrollView(.vertical, showsIndicators: true, content: {
+            LazyVStack(alignment:.leading, spacing: 8, content: {
+                ForEach(articles) { article in
+                    NavigationLink(
+                        destination: ArticleDetailView(article: article),
+                        label: {
+                            ArticlesListItemView(article: article)
+                        })
+                }
+            })
+            .padding(.horizontal, 8)
+        })
     }
 }
 
