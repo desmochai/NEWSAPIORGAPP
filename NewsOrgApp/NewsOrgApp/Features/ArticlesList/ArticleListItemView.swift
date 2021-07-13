@@ -7,14 +7,42 @@ struct ArticlesListItemView: View {
     @Environment(\.imageCache) var cache: ImageCache
     
     var body: some View {
-        HStack(alignment: .top, spacing: 8, content: {
+        ZStack(alignment: .bottom) {
+            card
             thumbnail
-            VStack(alignment: .leading, spacing: 4, content: {
-                title
-                timestamp
-                source
-            })
-        })
+                .cornerRadius(30)
+            overlay
+                .cornerRadius(30)
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    title
+                    HStack {
+                        source
+                        timestamp
+                    }
+                }
+            }
+            .padding(.all, 16)
+            .frame(width:300, height: 100)
+            .foregroundColor(.offWhite)
+        }
+    }
+    
+    private var card: some View {
+        RoundedRectangle(cornerRadius: 30)
+            .shadow(color: .black.opacity(0.2), radius: 10, x: 10, y: 10)
+            .shadow(color: .white.opacity(0.7), radius: 10, x: -5, y: -5)
+            .blendMode(.overlay)
+            .frame(width: 300, height: 500)
+    }
+    
+    private var overlay: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [.black, .black.opacity(0.01)]),
+            startPoint: .bottomTrailing,
+            endPoint: .topLeading
+        )
+        .frame(width: 300, height: 500)
     }
     
     private var thumbnail: some View {
@@ -25,9 +53,11 @@ struct ArticlesListItemView: View {
             configuration: { $0.resizable() }
         )
         .scaledToFill()
-        .frame(width: 120, height: 120)
-        .cornerRadius(8.0)
-        .padding(.vertical, 4)
+        .frame(
+            width: 300,
+            height: 500
+        )
+        .clipped()
     }
     
     private var title: some View {
@@ -39,14 +69,12 @@ struct ArticlesListItemView: View {
     
     private var source: some View {
         Text("Source: ".appending(article.source).uppercased())
-            .foregroundColor(.secondary)
-            .font(.custom("stamp", size: 10))
+            .font(.custom("stamp", size: 8))
     }
     
     private var timestamp: some View {
         Text(article.publishedAt.uppercased())
-            .foregroundColor(.secondary)
-            .font(.custom("stamp", size: 10))
+            .font(.custom("stamp", size: 8))
     }
     
     private var spinner: some View {
@@ -68,13 +96,11 @@ struct ArticlesListItemView_Preview: PreviewProvider {
             urlToImage: "https://bit.ly/2TIuVqF",
             content: ""
         )
-        
         ArticlesListItemView(
             article: ArticlesListViewModel.Article(
                 article: seed
             )
         )
-        .preferredColorScheme(.light)
         .previewLayout(.device)
         .previewDevice("iPhone 11 Pro")
     }
