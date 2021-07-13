@@ -7,9 +7,11 @@ struct ArticlesListView: View {
     var body: some View {
         NavigationView {
             content
-                .navigationBarTitle("Top Headlines")
+            .navigationBarTitle("Top Headlines")
         }
-        .onAppear { self.viewModel.send(event: .onAppear) }
+        .onAppear {
+            self.viewModel.send(event: .onAppear)
+        }
     }
     
     private var content: some View {
@@ -29,8 +31,8 @@ struct ArticlesListView: View {
     }
     
     private func list(of articles: [ArticlesListViewModel.Article]) -> some View {
-        ScrollView(.vertical, showsIndicators: true, content: {
-            LazyVStack(alignment:.leading, spacing: 8, content: {
+        ScrollView(.horizontal, showsIndicators: false, content: {
+            LazyHStack(alignment:.center, spacing: 16, content: {
                 ForEach(articles) { article in
                     NavigationLink(
                         destination: ArticleDetailView(article: article),
@@ -38,8 +40,7 @@ struct ArticlesListView: View {
                     )
                 }
             })
-            .padding(.horizontal, 8)
-            .animation(.easeIn)
+            .padding([.horizontal], 16)
         })
     }
 }
@@ -47,7 +48,6 @@ struct ArticlesListView: View {
 struct ArticlesListView_Preview: PreviewProvider {
     static var previews: some View {
         ArticlesListView(viewModel: ArticlesListViewModel())
-            .preferredColorScheme(.light)
             .previewLayout(.device)
             .previewDevice("iPhone 11 Pro")
     }
