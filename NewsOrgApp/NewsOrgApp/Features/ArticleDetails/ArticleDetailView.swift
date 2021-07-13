@@ -5,27 +5,52 @@ struct ArticleDetailView: View {
     @Environment(\.imageCache) var cache: ImageCache
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 8, content: {
-                title
-                HStack(alignment: .center, spacing: nil, content: {
-                    source
-                    timestamp
-                })
-                    Divider()
-                thumbnail
-                    Divider()
-                author
-                content
-            })
-        }
+        ScrollView(.vertical, showsIndicators: true, content: {
+            HStack {
+                VStack(alignment: .leading, spacing: 16) {
+                    title
+                    VStack(alignment: .center) {
+                        thumbnail
+                    }
+                    HStack { author; timestamp }
+                    content
+                }
+            }
+            .frame(
+                  minWidth: 0,
+                  maxWidth: .infinity,
+                  minHeight: 0,
+                  maxHeight: .infinity,
+                  alignment: .topLeading
+            )
+            .padding([.horizontal])
+            .navigationBarTitle(article.source)
+        })
     }
     
     private var title: some View {
         Text(article.title)
             .font(.title)
             .bold()
-            .multilineTextAlignment(.center)
+    }
+    
+    private var thumbnail: some View {
+        AsyncImage(
+            url: article.urlToImage!,
+            cache: cache,
+            placeholder: spinner,
+            configuration: { $0.resizable() }
+        )
+        .scaledToFill()
+        .frame(
+              minWidth: 0,
+              maxWidth: .infinity,
+              minHeight: 300,
+              maxHeight: 300,
+              alignment: .center
+        )
+        .clipped()
+        .cornerRadius(10.0)
     }
     
     private var source: some View {
@@ -40,18 +65,6 @@ struct ArticleDetailView: View {
             .font(.custom("stamp", size: 8))
     }
     
-    private var thumbnail: some View {
-        AsyncImage(
-            url: article.urlToImage!,
-            cache: cache,
-            placeholder: spinner,
-            configuration: { $0.resizable() }
-        )
-        .scaledToFill()
-        .frame(width: 300, height: 300)
-        .cornerRadius(8.0)
-    }
-    
     private var author: some View {
         Text("Author: ".appending(article.author).uppercased())
             .foregroundColor(.accentColor)
@@ -61,7 +74,6 @@ struct ArticleDetailView: View {
     private var content: some View {
         Text(article.content)
             .font(.body)
-            .padding([.leading, .trailing], 16)
     }
     
     private var spinner: some View {
@@ -88,5 +100,5 @@ struct ArticleDetailView_Previews: PreviewProvider {
 }
 
 /*
-    Until Apple designs testability into SwiftUI, we're screwed :/ 
-*/
+ Until Apple designs testability into SwiftUI, we're screwed :/
+ */
